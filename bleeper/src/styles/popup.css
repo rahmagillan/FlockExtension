@@ -1,0 +1,11 @@
+body {
+    min-width: 400px;
+    min-height: 400px;
+}
+
+
+.overall {
+    min-width: 100px;
+    padding: 10px;
+    color: red;
+}
