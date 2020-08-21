@@ -12,7 +12,8 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, 'dist/js'),
-        filename: '[name].js'
+        filename: '[name].js',
+        publicPath: '/assets'
     },
 
     resolve: {
@@ -22,7 +23,12 @@ module.exports = {
     module: {
         rules: [
             { test: /\.tsx?$/, loader: "ts-loader" },
-            { test: /\.css$/, use: ['style-loader', 'css-loader'] }
-        ]
+            { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+            {
+              test: /\.(gif|svg|jpg|png)$/,
+              loader: "file-loader?name=/img/[name].[ext]",
+            }
+        ],
     },
+    
 };

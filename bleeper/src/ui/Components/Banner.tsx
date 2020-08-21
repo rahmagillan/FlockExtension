@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import Logo from "./Images/icon48.png";
 
 const Banner = () => {
     const [currUrl, setCurrUrl] = useState(null);
@@ -11,7 +12,11 @@ const Banner = () => {
     
     return (
         <>
-        <div className="banner">Bleeper</div>
+        <div className="banner">
+            <img className="logo" src={Logo} />
+            Bleeper 
+        </div>
+        
         <div>You are on {currUrl}</div>
         </>
     );
