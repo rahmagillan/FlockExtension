@@ -30,3 +30,45 @@
     transform: rotate(360deg);
   }
 }
+
+
+#roomidbutton{
+    border: 0;
+    background-color: #051c67;
+    color: #ffffff;
+    padding: 8px 15px;
+    border-radius: 4px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#roomidbutton:hover{     
+    background-color: #213989;
+}
+
+.roomid{
+    margin: 10px;
+    padding: 5px;
+    color: white;
+}
+
+.clock{
+    margin: 10px;
+    padding: 5px;
+    font-size: 20px;
+    color: white;
+}
+
+.work{
+    margin: 10px;
+    padding: 5px;
+    color: white;
+}
+
+.wrapper{
+    margin: 30px;
+    border-radius: 10px;
+    padding: 30px;
+    min-height: 20vh;
+}
