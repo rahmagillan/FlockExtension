@@ -3,9 +3,10 @@ import logo from '../../assets/img/icon-34.png';
 import Greetings from '../../containers/Greetings/Greetings';
 import { Form, Button, Row, Col } from "react-bootstrap";
 import secrets from './secrets.dev.js';
-
+import './Popup.css';
 import firebase from 'firebase/app';
 import 'firebase/database';
+import mp3File from './aaa.mp3';
 
 const firebaseConfig = secrets;
 firebase.initializeApp(firebaseConfig);
@@ -21,12 +22,16 @@ const Popup = () => {
   const [min, setMin] = useState(null);
   const [sec, setSec] = useState(null);
   const [working, setWorking] = useState(true);
+  const wakeAudio = new Audio(mp3File);
     
   const handleRoomIdChange = (e) => {
 //      alert(e.target.value);
       setRoomId(e.target.value);
   };
 
+  const playSound = audioFile => {
+    audioFile.play();
+  };
     
   const handleSubmit = async() => {
       event.preventDefault();
@@ -59,15 +64,9 @@ const Popup = () => {
     setMin(("0" + (Math.floor(currTime / 60000) % 60)).slice(-2));
     setSec(("0" + (Math.floor(currTime / 1000) % 60)).slice(-2));
     if (!!breakTime && !!workTime) {
-      setWorking(
-        !!(
-          (parseInt(hour) * 60 + parseInt(min)) %
-            (parseInt(breakTime) + parseInt(workTime)) <
-          workTime
-        )
-          ? true
-          : false
-      );
+      const newW = !!((parseInt(hour) * 60 + parseInt(min)) % (parseInt(breakTime) + parseInt(workTime)) < workTime);
+      if (newW != working) playSound(wakeAudio);
+      setWorking(newW);
     }
   }, [currTime]);
     

@@ -25,6 +25,7 @@ var fileExtensions = [
   'ttf',
   'woff',
   'woff2',
+  'mp3',
 ];
 
 if (fileSystem.existsSync(secretsPath)) {
